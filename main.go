@@ -490,9 +490,19 @@ func main() {
     setupNode(os.Args[2:])
   case "submit":
     submit(os.Args[2:])
-  case "generate":
-    generate(os.Args[2:])
-  default:
-      fmt.Printf("[ERROR] unknown subcommand '%s', see help for more details.", os.Args[1])
-  }
+	case "generate":
+		generate(os.Args[2:])
+	case "help":
+		fmt.Println("This application implements a toy blockchain so that I can learn more about how they work.")
+		fmt.Println("For more info on the whole system and how it works, see https://github.com/rgaus/blockchain")
+		fmt.Println()
+		fmt.Println("Subcommands:")
+		fmt.Println("- node")
+		fmt.Println("- submit")
+		fmt.Println("- generate")
+		fmt.Println()
+		fmt.Printf("For help on any of the subcommands, run '%s <subcommand> --help'\n", os.Args[0])
+	default:
+		fmt.Printf("[ERROR] unknown subcommand '%s', see help for more details.\n", os.Args[1])
+	}
 }
